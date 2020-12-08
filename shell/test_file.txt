@@ -1,0 +1,11 @@
+echo Start
+cd .. && ls
+cd shell || echo cd failed
+sleep 10 &
+ps > output.txt
+cd asdb; echo Hey
+sleep 100 &
+echo Hey in the back! &
+ps
+sleep 2
+echo Finished!

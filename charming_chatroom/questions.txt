@@ -1,0 +1,43 @@
+1) What is a socket?
+    A socket is an endpoint of a two-way communication link between two programs running on the network.
+    A socket is bound to a port number so that the TCP layer can identify the application 
+        that the data is destined to be sent to.
+
+2) What is the difference between the domains AF_INET and AF_UNIX?
+    They are domains in ai_family field.
+    AF_INET: specifies the address format is IPv4.
+    AF_UNIX: used for communication between processes on the same machine, also known as AF_LOCAL.
+
+3) What is the difference between SOCK_STREAM and SOCK_DGRAM?
+    They are domains in ai_socktype field.
+    SOCK_STREAM: TCP (Transmission Control Protocol)
+    SOCK_DGRAM: UDP (User Datagram Protocol)
+
+4) Why is it important to clear all the values the addrinfo struct before using it in getaddrinfo?
+    To prevent the garbage data being mistakenly used for initialization of the uninitialized fields.
+
+5) What are ai_family and ai_socktype?
+    They are fields in the struct addrinfo.
+    ai_family: specifies the disired IP address format (e.g. IPv4 / IPv6).
+    ai_socktype: specifies the preferred socket type (e.g. stream for TCP / datagram for UDP).
+
+6) What does getaddrinfo do?
+    "getaddrinfo" converts a human readable domain name (e.g. www.illinois.edu) into an IPv4 or IPv6 address 
+        with other specified information that being used in the network transmission.
+
+7) What does connect do?
+    "connect" accepts a socket file descriptor, an address that meant to be connected, and the length in bytes of that address structure, 
+        using the socket as an endpoint, connects to another program running on the network.
+
+8) What is setsockopt?
+    "setsockopt" makes a port reusable immediately after the server socket is closed, by setting its third argument to "SO_REUSEPORT".
+
+9) What does bind do?
+    "bind" associates an abstract socket with an actual network interface and port.
+
+10) What does listen do?
+    "listen" specifies the queue size for the number of the incoming unhandled connections.
+
+11) What does accept do?
+    "accept" waits for new client connections. It will block until an client is connected and return a new file descriptor
+        which is specific to the particular client.
